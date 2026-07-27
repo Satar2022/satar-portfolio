@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title id="pageTitle">تفاصيل المشروع | عبدالستار رياض</title>
+    
+    <!-- استدعاء تايلوند وتفعيل وضع الدارك مود أيضاً هنا لمنع التعارض -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between font-kufi">
+
+    <!-- شريط التنقل المبسط -->
+    <nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-6 shadow-sm transition-colors duration-300">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 hover:text-indigo-600 transition">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span id="backHomeText" class="font-semibold">العودة للرئيسية</span>
+            </a>
+            
+            <div class="flex items-center gap-2">
+                <!-- زر تغيير الخط وحجم النص -->
+                <button id="fontToggle" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-300" title="تغيير الخط وحجم النص">
+                    <span class="material-symbols-outlined text-[22px]">text_fields</span>
+                </button>
+
+                <!-- زر الثيمات المطور -->
+                <button id="themeToggle" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-300">
+                    <span id="themeIcon" class="material-symbols-outlined text-[22px] transition-transform duration-300">light_mode</span>
+                </button>
+              
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
+        <div id="projectDetailWrapper" class="bg-white dark:bg-slate-950 p-6 md:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-8">
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center border-t border-slate-800">
+        <p>&copy; 2026 (عبدالستار رياض) جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = parseInt(urlParams.get('id'));
+            const project = projects.find(p => p.id === projectId);
+            const container = document.getElementById('projectDetailWrapper');
+            const storedLang = localStorage.getItem('portfolioLang') || 'ar';
+
+            if (storedLang === 'en') {
+                document.getElementById('backHomeText').textContent = 'Back to Home';
+                document.getElementById('pageTitle').textContent = 'Project Details | Abdul Sattar';
+            }
+
+            if (!project) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <span class="material-symbols-outlined text-red-500 text-6xl">error</span>
+                        <h2 class="text-2xl font-bold mt-4">${storedLang === 'ar' ? 'عذراً، لم يتم العثور على المشروع المطلوب' : 'Sorry, project not found'}</h2>
+                        <a href="index.html" class="inline-block mt-6 px-6 py-3 bg-indigo-600 text-white rounded-lg">${storedLang === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const title = storedLang === 'ar' ? project.titleAr : project.titleEn;
+            const longDesc = storedLang === 'ar' ? project.longDescriptionAr : project.longDescriptionEn;
+            const tags = storedLang === 'ar' ? project.tagsAr : project.tagsEn;
+
+            const waMsg = encodeURIComponent(storedLang === 'ar' 
+                ? `مرحباً عبدالستار، أود الاستفسار بخصوص مشروعك: (${title}) وأرغب في مناقشته معك.` 
+                : `Hello Abdul Sattar, I'm interested in your project: (${title}) and want to discuss it with you.`);
+
+            container.innerHTML = `
+                <img src="${project.image}" alt="${title}" class="max-w-full h-auto rounded-xl shadow-xl" style="width: auto; height: auto;" />
+                <div>
+                    <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-4">${title}</h1>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        ${tags.map(tag => `<span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="prose dark:prose-invert max-w-none mt-6">
+                    <h3 class="text-xl font-bold border-b pb-2 text-slate-800 dark:text-slate-200">${storedLang === 'ar' ? 'وصف تفصيلي للمشروع' : 'Detailed Project Description'}</h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mt-4 text-lg">${longDesc}</p>
+                </div>
+                <div class="flex flex-wrap gap-4 pt-6 border-t border-slate-100 dark:border-slate-800">
+                    <a href="${project.demoUrl}" target="_blank" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold transition flex items-center gap-2">
+                        <span class="material-symbols-outlined">launch</span>
+                        <span>${storedLang === 'ar' ? 'معاينة حية للمشروع' : 'Live Preview'}</span>
+                    </a>
+                    <a href="${project.githubUrl}" target="_blank" class="px-6 py-3 border border-slate-300 dark:border-slate-700 hover:border-slate-900 rounded-xl font-semibold transition flex items-center gap-2">
+                        <span class="material-symbols-outlined">code</span>
+                        <span>${storedLang === 'ar' ? 'مستودع الكود' : 'Source Code'}</span>
+                    </a>
+                </div>
+                <div class="bg-indigo-50 dark:bg-indigo-950/40 p-6 rounded-xl mt-12 border border-indigo-100 dark:border-indigo-900/60">
+                    <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-300">${storedLang === 'ar' ? 'هل أعجبك هذا العمل وتريد تنفيذه لشركتك؟' : 'Liked this project? Let’s create yours!'}</h3>
+                    <p class="text-indigo-800 dark:text-indigo-400/80 mt-2">${storedLang === 'ar' ? 'تواصل معي مباشرة لمناقشة أفكارك وتحويلها إلى حقيقة رقمية ناصعة.' : 'Contact me directly to discuss your ideas and make them a reality.'}</p>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <a href="https://wa.me/9647891814629?text=${waMsg}" target="_blank" class="px-5 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.242-4.145c1.612.956 3.197 1.458 4.795 1.459 5.503 0 9.975-4.47 9.979-9.973.002-2.665-1.026-5.17-2.898-7.043C16.24 2.426 13.743 1.398 11.01 1.397c-5.513 0-10.01 4.498-10.014 10.01-.001 1.83.479 3.618 1.391 5.178L1.39 21.155l4.909-1.3z"/></svg>
+                            <span>${storedLang === 'ar' ? 'تحدث معي على واتساب' : 'Chat on WhatsApp'}</span>
+                        </a>
+                        <a href="index.html#contact" class="px-5 py-3 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-lg transition flex items-center gap-2">
+                            <span class="material-symbols-outlined">mail</span>
+                            <span>${storedLang === 'ar' ? 'إرسال بريد إلكتروني' : 'Send an Email'}</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+
+
+    </script>
+</body>
+
+</html>

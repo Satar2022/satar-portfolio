@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title data-i18n="doc-title">عبدالستار رياض | مطور واجهات ومواقع ويب</title>
+     <link rel="icon" type="image/png" href="images/man.png">
+    <meta name="description" content="عبدالستار رياض - مطور واجهات ومواقع ويب محترف. متخصص في بناء تجارب رقمية احترافية وسريعة." />
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+   <!-- استدعاء تايلوند وتفعيل وضع الدارك مود المبني على الفئات -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    
+    <!-- تم إضافة الخطوط العربية الجديدة لدعم ميزة تبديل الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 font-kufi">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center md:grid md:grid-cols-3">
+        
+        <div class="flex items-center justify-start gap-2 md:gap-3">
+            <!-- اللوجو الجديد للموقع -->
+        <a href="#" class="flex items-center gap-3">
+            <!-- وسم الصورة الخاص باللوجو مع التحكم في الحجم ليناسب الهيدر -->
+            <img src="images/logo.png" alt="عبدالستار رياض" class="h-10 w-auto object-contain">
+            
+            <!-- (اختياري) إذا كنت تريد إبقاء الاسم بجانب اللوجو، اترك هذا السطر، وإذا كنت لا تريده فاحذفه -->
+            <span class="text-xl font-bold tracking-wider text-indigo-600 dark:text-indigo-400 transition-colors duration-300" data-i18n="nav-brand">عبدالستار رياض</span>
+        </a>
+        </div>
+
+        <div class="hidden md:flex justify-center items-center gap-8">
+            <a href="#" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition" data-i18n="nav-home">الرئيسية</a>
+            <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition" data-i18n="nav-about">عني</a>
+            <a href="#portfolio" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition" data-i18n="nav-portfolio">أعمالي</a>
+            <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition" data-i18n="nav-contact">تواصل معي</a>
+        </div>
+        
+        <div class="flex justify-end items-center gap-2 md:gap-4">
+            <div class="flex items-center gap-1 md:gap-2 border-x border-slate-200 dark:border-slate-700 px-2 md:px-4">
+                <button id="fontToggle" class="p-1.5 md:p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition rounded-lg md:rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-300" title="تغيير الخط">
+                    <span class="material-symbols-outlined text-[18px] md:text-[22px]">text_fields</span>
+                </button>
+
+                <button id="themeToggle" class="p-1.5 md:p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition rounded-lg md:rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-300" title="تغيير المظهر">
+                    <span id="themeIcon" class="material-symbols-outlined text-[18px] md:text-[22px] transition-transform duration-300">light_mode</span>
+                </button>
+            </div>
+
+            <button id="langToggle" class="px-2 py-1 md:px-3 md:py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition rounded-lg md:rounded-xl text-xs md:text-sm font-semibold">EN</button>
+
+            <button id="menuToggle" class="md:hidden p-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-300 flex items-center justify-center" aria-label="Toggle Menu">
+                <span id="menuIcon" class="material-symbols-outlined text-[24px]">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 px-6 py-4 space-y-4 shadow-xl transition-colors duration-300">
+        <a href="#" class="block hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition py-1 border-b border-slate-100 dark:border-slate-800" data-i18n="nav-home">الرئيسية</a>
+        <a href="#about" class="block hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition py-1 border-b border-slate-100 dark:border-slate-800" data-i18n="nav-about">عني</a>
+        <a href="#portfolio" class="block hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition py-1 border-b border-slate-100 dark:border-slate-800" data-i18n="nav-portfolio">أعمالي</a>
+        <a href="#contact" class="block hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition py-1" data-i18n="nav-contact">تواصل معي</a>
+    </div>
+</nav>
+
+    <section class="min-h-screen flex items-center pt-24 bg-gradient-to-br from-indigo-50 to-slate-50 dark:from-slate-900 dark:to-indigo-950">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center w-full">
+            <div>
+                <span class="text-indigo-600 dark:text-indigo-400 font-semibold text-lg" data-i18n="hero-welcome">مرحباً بك في عالمي الرقمي</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
+                    <span data-i18n="hero-name">أنا عبدالستار رياض</span><br>
+                    <span class="text-indigo-600 dark:text-indigo-400" data-i18n="hero-title">مطور واجهات ومواقع ويب</span>
+                </h1>
+                <p class="mt-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed" data-i18n="hero-desc">
+                    أقوم بتحويل الأفكار المعقدة إلى تجارب ويب تفاعلية، سريعة، ومريحة للمستخدم باستخدام أحدث التقنيات البرمجية.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#portfolio" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl transition shadow-lg shadow-indigo-600/20" data-i18n="hero-btn-portfolio">عرض أعمالي</a>
+                    <a href="#contact" class="px-6 py-3 border border-slate-300 dark:border-slate-700 hover:border-indigo-600 dark:hover:border-indigo-400 font-medium rounded-xl transition" data-i18n="hero-btn-contact">تواصل معي الآن</a>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <!-- تأثير متموج ومتحرك احترافي متعدد الطبقات حول الدائرة الشخصية -->
+                <!-- الحاوية الرئيسية النسبية -->
+                <div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
+                    
+                    <!-- الدائرة المتموجة الأولى (الداخلية) -->
+                    <!-- تم تغيير animate-ping-slow إلى animate-ripple -->
+                    <div class="absolute inset-0 rounded-full bg-indigo-500/30 dark:bg-indigo-400/30 animate-ripple"></div>
+                    
+                    <!-- الدائرة المتموجة الثانية (الخارجية) -->
+                    <!-- تم تغيير animate-pulse-slow إلى animate-ripple مع إضافة تأخير -->
+                    <div class="absolute inset-0 rounded-full bg-indigo-500/20 dark:bg-indigo-400/20 animate-ripple animation-delay-1500"></div>
+                    
+                    <!-- حاوية الصورة الشخصية (الأمامية) -->
+                    <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl transition-transform duration-500 hover:scale-105 z-10 profile-glow">
+                        <img src="images/avatar.png" alt="عبدالستار رياض" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+        
+        <div class="max-w-7xl mx-auto px-6 ">
+            <h2 class="text-3xl font-bold text-center mb-12" data-i18n="about-title">من أنا؟</h2>
+            <div class="max-w-3xl mx-auto text-center leading-relaxed text-slate-600 dark:text-slate-300 text-lg space-y-6">
+                
+            <p data-i18n="p1">
+             أنا <strong>عبد الستار رياض</strong>، خريج بكالوريوس علوم الحاسبات ومطور برمجيات متخصص في تصميم وتطوير تطبيقات الويب الحديثة، مع اهتمام كبير ببناء حلول تقنية تجمع بين الأداء، الأمان، وسهولة الاستخدام.
+            </p>
+
+            <p data-i18n="p2">
+            انطلقت رحلتي في عالم البرمجة من خلال دراستي الأكاديمية، حيث اكتسبت أساسًا قويًا في البرمجة، هندسة البرمجيات، قواعد البيانات، وتحليل وتصميم الأنظمة. ومنذ ذلك الحين أواصل تطوير مهاراتي عبر التعلم المستمر والعمل على مشاريع حقيقية.
+            </p>
+
+           <p data-i18n="p3">
+            أؤمن أن البرمجيات ليست مجرد أسطر من الكود، بل هي حلول عملية تساعد الأفراد والشركات على تحسين أعمالهم. لذلك أركز على بناء تطبيقات احترافية تتميز بالسرعة، والاعتمادية، وتجربة المستخدم المتميزة.
+           </p>
+
+           <h2 data-i18n="servicesTitle">ما أقدمه</h2>
+
+           <ul class="about-list">
+            <li data-i18n="service1">تطوير تطبيقات ويب حديثة وسريعة.</li>
+            <li data-i18n="service2">بناء تطبيقات PWA تعمل على جميع الأجهزة.</li>
+            <li data-i18n="service3">تصميم وتطوير لوحات التحكم وأنظمة الإدارة.</li>
+            <li data-i18n="service4">أنظمة تعمل دون اتصال بالإنترنت (Offline First).</li>
+            <li data-i18n="service5">دمج قواعد البيانات والخدمات السحابية.</li>
+            <li data-i18n="service6">تطوير أنظمة الاشتراكات والتراخيص.</li>
+          </ul>
+
+           <h2 data-i18n="skillsTitle">التقنيات التي أعمل بها</h2>
+          <div style="text-align: center">
+ <div class="marquee-container">
+    <div class="marquee-track">
+      <!-- ================= المجموعة الأولى ================= -->
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/html.png" alt="HTML5"></div>
+      <span>HTML5</span>
+    </a>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/css.png" alt="CSS3"></div>
+      <span>CSS3</span>
+    </a>
+
+    <a href="https://www.typescriptlang.org" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/typescript.png" alt="TypeScript"></div>
+      <span>TypeScript</span>
+    </a>
+
+    <a href="https://git-scm.com/" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><iconify-icon icon="logos:git-icon"></iconify-icon></div>
+      <span>Git</span>
+    </a>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/js.png" alt="JavaScript"></div>
+      <span>JavaScript</span>
+    </a>
+
+    <a href="https://github.com" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/github.png" alt="GitHub"></div>
+      <span>GitHub</span>
+    </a>
+
+    <a href="https://nextjs.org" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><iconify-icon icon="logos:nextjs-icon"></iconify-icon></div>
+      <span>Next.js</span>
+    </a>
+
+    <a href="https://www.python.org" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/python.png" alt="Python"></div>
+      <span>Python</span>
+    </a>
+
+    <a href="https://react.dev" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><iconify-icon icon="logos:react"></iconify-icon></div>
+      <span>React</span>
+    </a>
+
+<a href="https://www.dev-cpp.com" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/c++.png" alt="C++"></div>
+      <span>C++</span>
+    </a>
+    <!-- ================= المجموعة الثانية (مكررة للتحريك اللانهائي) ================= -->
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/html.png" alt="HTML5"></div>
+      <span>HTML5</span>
+    </a>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/css.png" alt="CSS3"></div>
+      <span>CSS3</span>
+    </a>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/js.png" alt="JavaScript"></div>
+      <span>JavaScript</span>
+    </a>
+
+    <a href="https://www.typescriptlang.org" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/typescript.png" alt="TypeScript"></div>
+      <span>TypeScript</span>
+    </a>
+
+    <a href="https://git-scm.com/" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><iconify-icon icon="logos:git-icon"></iconify-icon></div>
+      <span>Git</span>
+    </a>
+
+    <a href="https://github.com" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/github.png" alt="GitHub"></div>
+      <span>GitHub</span>
+    </a>
+
+    <a href="https://nextjs.org" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><iconify-icon icon="logos:nextjs-icon"></iconify-icon></div>
+      <span>Next.js</span>
+    </a>
+
+    <a href="https://www.python.org" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/python.png" alt="Python"></div>
+      <span>Python</span>
+    </a>
+
+    <a href="https://react.dev" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><iconify-icon icon="logos:react"></iconify-icon></div>
+      <span>React</span>
+    </a>
+
+    <a href="https://www.dev-cpp.com" target="_blank" class="marquee-item">
+      <div class="icon-wrapper"><img src="images/c++.png" alt="C++"></div>
+      <span>C++</span>
+    </a>
+    </div>
+  </div>
+
+           <h2 data-i18n="visionTitle">رؤيتي</h2>
+
+          <p data-i18n="vision">
+            أسعى إلى تطوير منتجات رقمية تقدم قيمة حقيقية للمستخدم، وتساعد الأفراد والشركات على إنجاز أعمالهم بكفاءة من خلال حلول تقنية حديثة تعتمد على الجودة والابتكار.
+          </p>
+
+          </div>
+         </div>
+        
+    </section>
+
+    <section id="portfolio" class="py-24 bg-slate-50 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold" data-i18n="portfolio-title">معرض أعمالي ومشاريعي</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-4" data-i18n="portfolio-subtitle">أحدث المشاريع التي قمت بتطويرها مؤخراً</p>
+            </div>
+            <div id="projectsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold" data-i18n="contact-title">دعنا نبني شيئاً رائعاً معاً!</h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed" data-i18n="contact-desc">
+                    إذا كان لديك مشروع ترغب في تنفيذه، أو لديك أي استفسار، فلا تتردد في مراسلتي وسأرد عليك في أقرب وقت ممكن.
+                </p>
+
+                <div class="mt-8 space-y-6">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined p-3 bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-lg">location_on</span>
+                        <div>
+                            <h4 class="font-bold" data-i18n="info-location-title">العنوان الحالي</h4>
+                            <p class="text-slate-600 dark:text-slate-400" data-i18n="info-location-val">دولة العراق، محافظة الأنبار، مدينة الرمادي</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined p-3 bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-lg">call</span>
+                        <div>
+                            <h4 class="font-bold" data-i18n="info-phone-title">رقم الهاتف الفوري</h4>
+                            <p class="text-slate-600 dark:text-slate-400" dir="ltr">+964 789 181 4629</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <form id="contactForm" action="https://formspree.io/f/maqrnqeb" method="POST" class="space-y-6 p-8 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" data-i18n="form-name">الاسم الكريم</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" data-i18n="form-email">بريدك الإلكتروني</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" data-i18n="form-msg">مضمون الرسالة</label>
+                        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition flex justify-center items-center gap-2">
+                        <span id="submitText" data-i18n="form-submit">إرسال الرسالة</span>
+                        <span id="submitIcon" class="material-symbols-outlined">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center">
+        <p>&copy; 2026 عبدالستار رياض. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- تم تحسين نص الواتساب البرمجي المشوه ليكون واضحاً وجميلاً -->
+    <a href="https://wa.me/9647891814629?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B3%D8%AA%D8%A7%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%20%D8%A8%D8%B4%D8%A3%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AC%D8%AF%D9%8A%D8%AF." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-50 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 hover:scale-110 animate-bounce flex items-center justify-center" aria-label="Contact on WhatsApp">
+       <!-- <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.242-4.145c1.612.956 3.197 1.458 4.795 1.459 5.503 0 9.975-4.47 9.979-9.973.002-2.665-1.026-5.17-2.898-7.043C16.24 2.426 13.743 1.398 11.01 1.397c-5.513 0-10.01 4.498-10.014 10.01-.001 1.83.479 3.618 1.391 5.178L1.39 21.155l4.909-1.3z" />
+        </svg>   -->
+
+         <img
+        src="images/whatsapp.png"
+        alt="WhatsApp"
+        class="w-8 h-8 object-contain">
+    </a>
+
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden p-4 rounded-xl text-white font-semibold transition-all shadow-xl"></div>
+
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+  Iconify.preloadIcons([
+    'logos:react',
+    'logos:nextjs-icon'
+  ]);
+</script>
+</body>
+
+</html>

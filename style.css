@@ -1,0 +1,289 @@
+/* تهيئة الخطوط الأساسية الحرة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* فئات الخطوط التفاعلية المخصصة للموقع بالكامل */
+.font-kufi {
+    font-family: 'Noto Kufi Arabic', 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.font-cairo {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600;
+}
+
+.font-amiri {
+    font-family: 'Amiri', serif !important;
+    font-size: 1.15rem; /* تحسين الحجم ليتناسب مع النمط الكلاسيكي للنسخ */
+}
+
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* تنسيق شريط التمرير */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4f46e5;
+}
+
+/* تأثيرات الانتقال التفاعلية للصورة الشخصية وباقي العناصر */
+.animate-ping-slow {
+    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.profile-glow {
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
+}
+
+.dark .profile-glow {
+    box-shadow: 0 0 35px rgba(129, 140, 248, 0.3);
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+        transform: translateY(-10px);
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+}
+
+html, body, nav, section, div, p, h1, h2, h3, h4, input, textarea, button {
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ==========================================================================
+   ثيم السيبيا الدافئ والمريح للعين (Theme Sepia)
+   ========================================================================== */
+html.theme-sepia {
+    background-color: #faf6ee !important;
+    color: #3e2f1d !important;
+}
+
+html.theme-sepia body {
+    background-color: #faf6ee !important;
+    color: #3e2f1d !important;
+}
+
+html.theme-sepia nav,
+html.theme-sepia footer,
+html.theme-sepia #projectDetailWrapper,
+html.theme-sepia #contactForm,
+html.theme-sepia #projectsContainer > div {
+    background-color: #f3ebd9 !important;
+    border-color: #dfd2b9 !important;
+    color: #3e2f1d !important;
+}
+
+html.theme-sepia input,
+html.theme-sepia textarea {
+    background-color: #faf6ee !important;
+    border-color: #dfd2b9 !important;
+    color: #3e2f1d !important;
+}
+
+html.theme-sepia input:focus,
+html.theme-sepia textarea:focus {
+    border-color: #a05c1e !important;
+    box-shadow: 0 0 0 2px rgba(160, 92, 30, 0.2) !important;
+}
+
+html.theme-sepia section {
+    background-color: #faf6ee !important;
+}
+
+html.theme-sepia .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, #f3ebd9, #faf6ee) !important;
+}
+
+html.theme-sepia .text-indigo-600,
+html.theme-sepia .text-indigo-400 {
+    color: #a05c1e !important;
+}
+
+html.theme-sepia .bg-indigo-600,
+html.theme-sepia .hover\:bg-indigo-700:hover {
+    background-color: #a05c1e !important;
+    color: #ffffff !important;
+}
+
+html.theme-sepia .bg-indigo-50 {
+    background-color: #dfd2b9 !important;
+    color: #3e2f1d !important;
+}
+
+html.theme-sepia .border-slate-200,
+html.theme-sepia .border-slate-100 {
+    border-color: #dfd2b9 !important;
+}
+
+html.theme-sepia .text-slate-600,
+html.theme-sepia .text-slate-500,
+html.theme-sepia .text-slate-400 {
+    color: #6b5235 !important;
+}
+
+html.theme-sepia footer {
+    background-color: #271c0f !important;
+    color: #b7a48d !important;
+}
+
+html.theme-sepia .bg-indigo-950\/40 {
+    background-color: #e6dcbe !important;
+    border-color: #dfd2b9 !important;
+}
+
+html.theme-sepia .text-indigo-900,
+html.theme-sepia .text-indigo-800 {
+    color: #5c3e1e !important;
+}
+
+
+/* ==========================================================================
+   تأثير النبض المتموج الجديد (Ripple/Pulse Effect) - يعمل باستمرار
+   ========================================================================== */
+
+.animate-ripple {
+    /* الحركة: ripple، المدة: 3ث، السرعة: ثابتة (linear)، التكرار: لا نهائي (infinite) */
+    animation: ripple 3s linear infinite;
+    transform-origin: center;
+    opacity: 0.8;
+}
+
+/* تأخير للدائرة الثانية */
+.animation-delay-1500 {
+    animation-delay: 1.5s;
+}
+
+/* تعريف خطوات الحركة: تبدأ طبيعية وتكبر ثم تختفي */
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/*-----------------------------------*/
+/* 1. جعل خلفية الشريط شفافة لتعتمد على خلفية الموقع */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  padding: 20px 0;
+  position: relative;
+  
+  /* تثبيت الاتجاه لمنع تغير اتجاه حركة الشريط عند تغيير لغة الموقع */
+  direction: ltr !important; 
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content; 
+  gap: 30px;
+  animation: scroll 20s linear infinite;
+
+  /* هذي الأسطر تمنع اختفاء الأيقونات أثناء الحركة */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* 3. تصميم بطاقة الأيقونة */
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit; /* يتكيف تلقائياً مع لون الخط الخاص بموقعك */
+  background: rgba(150, 150, 150, 0.08); /* خلفية رمادية خفيفة جداً تتماشى مع الفاتح والداكن */
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(150, 150, 150, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.marquee-item:hover {
+  transform: translateY(-3px);
+}
+
+/* 4. الحاوية الخاصة بالأيقونة لضمان ظهور الأيقونات السوداء في الوضع الداكن */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* خلفية بيضاء ثابتة خلف الأيقونة فقط */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* جعل الخلفية البيضاء دائرية وأنيقة */
+  padding: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف لإبراز الأيقونات المظلمة */
+  flex-shrink: 0;
+}
+
+.icon-wrapper iconify-icon {
+  font-size: 1.5rem;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  /* حماية من الاختفاء البصري */
+  contain: layout style paint; 
+}
+
+/* 5. حركة الدوران المستمرة */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* إزالة التسطير الافتراضي للروابط وإضافة مؤشر الضغط */
+a.marquee-item {
+  text-decoration: none;
+  cursor: pointer;
+}
