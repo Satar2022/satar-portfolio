@@ -109,40 +109,5 @@ const projects = [
     longDescriptionAr: "تطبيق ويب احترافي يعمل كتطبيق PWA لإدارة الديون والحسابات الشخصية والتجارية مع إمكانية العمل بالكامل دون اتصال بالإنترنت. يعتمد على قاعدة بيانات محلية مشفرة لضمان سرعة الأداء وحماية البيانات، ويتميز بنظام مزامنة ذكي يسمح باستخدام نفس الحساب على عدة أجهزة مختلفة. عند توفر الإنترنت تتم مزامنة التعديلات فقط مع معالجة تعارضات البيانات بطريقة احترافية لضمان عدم فقدان أي معلومات. يدعم التطبيق النسخ الاحتياطي والاستعادة، وإدارة العملاء، والأقساط، والتنبيهات، والتقارير المالية التفصيلية.",
 
     longDescriptionEn: "A professional Progressive Web App (PWA) for managing personal and business debts with full offline functionality. It uses an encrypted local database for maximum speed and privacy while providing intelligent synchronization across multiple devices under the same account. When internet access is available, only modified data is synchronized with advanced conflict resolution to ensure data integrity. The application also supports backups, customer management, installment tracking, reminders, and detailed financial reports."
-},
-{
-    id: 4,
-    titleAr: "نظام توليد وإدارة مفاتيح التراخيص المشفرة",
-    titleEn: "Encrypted License Key Management System",
-
-    tagsAr: [
-        "Security",
-        "Encryption",
-        "License Keys",
-        "Desktop",
-        "Activation",
-        "AES",
-        "RSA"
-    ],
-
-    tagsEn: [
-        "Security",
-        "Encryption",
-        "License Keys",
-        "Desktop",
-        "Activation",
-        "AES",
-        "RSA"
-    ],
-
-    image: "images/soon.png",
-
-    demoUrl: "#",
-
-    githubUrl: "https://github.com/Satar2022",
-
-    longDescriptionAr: "منصة احترافية لإدارة وإنشاء مفاتيح التراخيص المشفرة للبرامج والتطبيقات. تتيح إنشاء مفاتيح تفعيل آمنة بمختلف أنواع الاشتراكات مثل الشهرية والسنوية أو مدى الحياة، مع ربط كل ترخيص بجهاز المستخدم لمنع النسخ غير المصرح به. يعتمد النظام على تقنيات تشفير متقدمة لحماية المفاتيح والبيانات، مع لوحة تحكم لإدارة العملاء والتراخيص، وتتبع عمليات التفعيل، وإلغاء أو تجديد الاشتراكات، بالإضافة إلى التحقق الآمن من صحة الترخيص عبر الإنترنت أو محلياً.",
-
-    longDescriptionEn: "A professional platform for generating and managing encrypted software license keys. It supports secure activation keys for monthly, yearly, or lifetime subscriptions while binding each license to a specific device to prevent unauthorized copying. The system employs advanced encryption technologies, provides a comprehensive administration dashboard for customer and license management, activation tracking, subscription renewal, revocation, and secure online or offline license validation."
 }
 ];
