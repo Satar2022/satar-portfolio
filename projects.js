@@ -46,11 +46,16 @@ const projects = [
 
     githubUrl: "https://github.com/Satar2022"
 },
+  /*-------------------------------------------------------*/
 {
     id: 2,
     titleAr: "نظام المطابقة الذكي للإرسال الجماعي",
     titleEn: "Smart Bulk Matching & Messaging System",
+ descriptionAr:
+        "خدمه لارسال المطابقات الذكي عبر برنامج واتساب وبرنامج تليجرام",
 
+    descriptionEn:
+        "A service for sending smart match notifications via WhatsApp and Telegram.",
     tagsAr: [
         "react.js",
         "قاعدة بيانات محلية",
@@ -75,11 +80,16 @@ const projects = [
 
     longDescriptionEn: "A professional automation system designed for intelligent bulk matching and messaging. It imports Excel files, analyzes customer data, matches recipients with WhatsApp or Telegram, and sends personalized messages using dynamic variables. The system includes detailed delivery reports, complete activity logs, and an encrypted local database to ensure maximum performance and data privacy."
 },
+/*----------------------------------------------------------*/
 {
     id: 3,
     titleAr: "تطبيق دفتر الديون الذكي (PWA)",
     titleEn: "Smart Debt Book PWA",
+ descriptionAr:
+        "قريبا جاري العمل عليه",
 
+    descriptionEn:
+        "Coming soon, work is underway",
     tagsAr: [
         "PWA",
         "Offline First",
