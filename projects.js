@@ -65,9 +65,9 @@ const projects = [
         "Telegram"
     ],
 
-    image: "images/soon.png",
+    image: "images/SRA.png",
 
-    demoUrl: "#",
+    demoUrl: "https://smart-matching.onrender.com",
 
     githubUrl: "https://github.com/Satar2022",
 
